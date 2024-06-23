@@ -76,3 +76,8 @@ Other ways to install Node.js are documented here: https://nodejs.org/en/downloa
 There are many different text editors, the one you choose to use is down to personal preference, but the most popular text editor today is [Visual Studio Code](https://code.visualstudio.com/) so that is the one we recommend.
 
 Visit the website to download and install VSCode here: https://code.visualstudio.com/download.
+
+<hr style="margin-top: 32px">
+<div style="display: flex; justify-content: center; margin-top: 16px; font-weight: bold; font-size: 16px">
+  <span><a href="README.md">🏠 Home</a></span>
+</div>

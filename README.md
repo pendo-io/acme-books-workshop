@@ -17,4 +17,6 @@ Before you begin follow the setup instructions: [Setup Instructions](./docs/setu
 
 ## Tasks
 
-After you have completed the setup follow the tasks provided: [Workshop Tasks](./docs/tasks.md)
+After you have completed the setup complete the following tasks.
+
+1. [Clone and run the base app](./docs/tasks/step-1.md)
