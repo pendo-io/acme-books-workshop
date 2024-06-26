@@ -29,6 +29,8 @@ Here is a rough file structure and explanation of some of the key folders and fi
     └── pages
         ├── index.vue # main Vue component for the index route/page.
         └── ... # other pages (http://127.0.0.1:3000/my-page => my-page.vue)
+    └── services
+        ├── api.service.js # functions for reading and writing the data
     ├── App.vue # root component, renders app structure.
     ├── main.js # entry point, initializes Vue app.
 ```
@@ -63,5 +65,5 @@ Open `src/pages/index.vue` and change the page heading from `Welcome to ACME Boo
 <div style="display: flex; justify-content: space-between; margin-top: 16px; font-weight: bold; font-size: 16px">
   <span></span>
   <span><a href="README.md">🏠 Home</a></span>
-  <span><a href="./docs/tasks/step-2.md">Next Step ➡️</a></span>
+  <span><a href="./docs/tasks/step-2.md">Next Step →</a></span>
 </div>

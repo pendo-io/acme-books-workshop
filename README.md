@@ -20,3 +20,6 @@ Before you begin follow the setup instructions: [Setup Instructions](./docs/setu
 After you have completed the setup complete the following tasks.
 
 1. [Clone and run the base app](./docs/tasks/step-1.md)
+2. [Update the homepage](./docs/tasks/step-2.md)
+3. [List all the books in a table](./docs/tasks/step-3.md)
+4. [Dynamically update the books displayed on the homepage](./docs/tasks/step-4.md)
