@@ -8,15 +8,15 @@ On the `/all-books` page list all of the books using a [vuetify data table](http
 
 ### Search
 
-https://vuetifyjs.com/en/components/data-tables/basics/
+https://vuetifyjs.com/en/components/data-tables/data-and-display/#search
 
 ### Pagination
 
-https://vuetifyjs.com/en/components/data-tables/basics/
+https://vuetifyjs.com/en/components/data-tables/data-and-display/#pagination-examples
 
 ### Column sorting
 
-https://vuetifyjs.com/en/components/data-tables/basics/
+https://vuetifyjs.com/en/components/data-tables/data-and-display/#sorting-examples
 
 ### Filtering by category
 
