@@ -107,5 +107,5 @@
 <script setup>
 import { get } from '@/services/api.service';
 
-const books = await get('books');
+const books = await get('my-books');
 </script>
