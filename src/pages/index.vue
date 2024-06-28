@@ -38,7 +38,7 @@
 
             <template #subtitle>
               <div class="text-subtitle-1">
-                Change this page by updating <v-kbd>{{ `<Home />` }}</v-kbd> in <v-kbd>pages/Home.vue</v-kbd>.
+                Change this page by updating <v-kbd>src/pages/index.vue</v-kbd>.
               </div>
             </template>
 
@@ -57,7 +57,7 @@
             append-icon="mdi-open-in-new"
             class="py-4"
             color="surface-variant"
-            href="https://github.com/pendo-io/acme-books-workshop/"
+            href="https://github.com/pendo-io/acme-books-workshop/?tab=readme-ov-file#tasks"
             prepend-icon="mdi-list-status"
             rel="noopener noreferrer"
             rounded="lg"
