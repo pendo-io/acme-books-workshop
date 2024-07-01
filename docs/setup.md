@@ -11,7 +11,7 @@ If you get stuck do not worry, you can try ask [ChatGPT](https://chatgpt.com/) f
 [Git](https://git-scm.com/) is a version control system that tracks changes in your code, allowing multiple people to collaborate and manage project versions efficiently.
 
 ### Mac instructions
-Open the Mac terminal application and run the following commands (`# these are comments`).
+Open the Mac terminal application and run the following commands (`# these are comments`). On Mac you'll need to install [Homebrew](https://brew.sh/).
 
 ```bash
 # install Homebrew

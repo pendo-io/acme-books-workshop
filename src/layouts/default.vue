@@ -1,9 +1,13 @@
 <template>
   <v-app>
+    <!-- Add a navbar here! -->
+
+    <!-- This is the main content of the page -->
     <v-main>
       <router-view />
     </v-main>
 
+    <!-- The footer component -->
     <AppFooter />
   </v-app>
 </template>
