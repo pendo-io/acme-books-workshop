@@ -8,7 +8,7 @@ Open your terminal and type the following.
 cd ~/Documents/
 
 # clone the github repository
-git clone TODO
+git clone git@github.com:pendo-io/acme-books-workshop.git
 ```
 
 This will clone the app into your Documents on your computer. Open the `ACME-BOOKS-WORKSHOP` folder in your code editor.
