@@ -7,10 +7,22 @@
         src="@/assets/logo.png"
       />
 
-      <h1>Welcome to Acme Books</h1>
+      <h1>Welcome to Books</h1>
+      <br>
+      <h3>Your favorites:</h3>
+      <br>
 
       <div class="cards-container">
         <!-- Step 2: use the book-card component here -->
+        <book-card
+          v-for="book in favoriteBooks"
+          :key="book.isbn"
+          :title="book.title"
+          :authors="book.authors.join(', ')"
+          :img-src="book.thumbnailUrl"
+          :short-description="book.shortDescription"
+          :long-description="book.longDescription"
+          />
       </div>
   </div>
 </template>
