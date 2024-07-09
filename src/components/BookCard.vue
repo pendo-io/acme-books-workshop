@@ -2,13 +2,22 @@
 <template>
     <!-- The v-card component is a Vuetify component that displays a card -->
     <v-card class="ma-2" width="500px">
-        <v-row>
-            <v-col>
+        <v-row justify="start">
+            <v-col cols="2.5">
                 <v-img :src="imgSrc" height="100px" width="80px"/>
             </v-col>
-            <v-col cols="9" align="left">
-                <v-card-title>{{ title }}</v-card-title>
+            <v-col cols="7">
+                <v-card-title style="word-wrap: break-word; white-space: normal;">{{ title }}</v-card-title>
                 <v-card-text>{{ authors }}</v-card-text>
+            </v-col>
+            <v-col>
+                <v-card-actions>
+                    <v-btn
+                        text="❤"
+                        variant="text"
+                        @click="unfavorite( isbn )"
+                    />
+                </v-card-actions>
             </v-col>
         </v-row>
 
@@ -42,10 +51,12 @@ const reveal = ref(false);
 // Define the props that this component will accept
 defineProps({
     title: String,
+    isbn: String,
     authors: String,
     imgSrc: String,
     shortDescription: String,
     longDescription: String,
+    unfavorite: Function,
 });
 
 const buttonPress = () => {
