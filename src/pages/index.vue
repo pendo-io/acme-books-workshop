@@ -57,7 +57,4 @@ function unfavorite(isbn) {
   padding: 64px;
 }
 
-.cards-container {
-  /* Add styles here */
-}
 </style>
