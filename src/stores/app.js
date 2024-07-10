@@ -13,18 +13,6 @@ export const bookStore = defineStore('app', {
       this.books.find((book) => book.isbn == isbn).favorite = favorite;
     },
 
-    setBooks(books) {
-      this.books = books;
-    },
-    
-    getFromISBN (isbn){
-      return this.books.find((book) => book.isbn == isbn)
-    },
-
-    editBook(isbn, updatedBook){
-      this.books.find((book) => book.isbn == isbn) = updatedBook;
-    },
-
     deleteBook(isbn){
       this.books.splice(this.books.indexOf(this.books.find((book) => book.isbn == isbn)), 1);
     }

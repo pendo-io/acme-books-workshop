@@ -28,5 +28,5 @@ app.mount('#app')
 const store = bookStore()
 
 getBooks().then((books) => {
-   store.setBooks(books);
+   store.books = books;
 });
