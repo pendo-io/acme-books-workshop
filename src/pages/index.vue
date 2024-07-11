@@ -108,11 +108,7 @@ var ind = 0;
 document.addEventListener('keydown', (event) => {
   if (event.key == sequence[ind]) ind ++;
   else ind=0;
-  if (ind == 11){
-    store.books.forEach((book) => {
-      book.thumbnailUrl = "https://media.tenor.com/o656qFKDzeUAAAAM/rick-astley-never-gonna-give-you-up.gif";
-    });
-  }
+  if (ind == 11) store.books.forEach((book) => {book.thumbnailUrl = "https://media.tenor.com/o656qFKDzeUAAAAM/rick-astley-never-gonna-give-you-up.gif";});
 });
 
 </script>
