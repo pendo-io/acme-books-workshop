@@ -14,7 +14,10 @@ export const bookStore = defineStore('app', {
     },
 
     deleteBook(isbn){
-      this.books.splice(this.books.indexOf(this.books.find((book) => book.isbn == isbn)), 1);
+      const ind = this.books.indexOf(this.books.find((book) => book.isbn == isbn));
+      if (ind != -1){
+        this.books.splice(ind, 1);
+      }
     }
   }
 })
