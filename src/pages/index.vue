@@ -40,7 +40,9 @@
             single-line
             clearable
             ref="searchField"
-        ></v-text-field>
+            @keydown.enter="enterFavorite"
+            prepend-inner-icon="mdi-magnify"/>
+
           <v-data-table :items="[{}, ...allBooks]" :search="search" :headers="headers" items-per-page="1" show-items-per-page="false" hide-default-footer hide-default-header>
             <template v-slot:item.authors="{ item }">
                 {{ toArray(item.authors) }}
@@ -49,6 +51,7 @@
                 <v-btn 
                 v-if="item.title"
                 @click="favoriteBook(item)"
+                ref="favoriteButton"
                 >Add Favourite</v-btn>
               </template>
           </v-data-table>
@@ -65,6 +68,7 @@ import { bookStore } from '@/stores/app';
 import { ref } from 'vue';
 
 const store = bookStore();
+store.makeDatesActuallyReadableWithoutExactTimesThatTheyWerePublishedBecauseThatsJustUnrealisticNoOneKnowsTheExactTimeAtWhichABookWasPubishedItDoesntMakeAnySense();
 
 const showAdd = ref(false);
 
@@ -75,6 +79,7 @@ const allBooks = ref([])
 allBooks.value = store.books;
 const search = ref('');
 const searchField = ref(null);
+const favoriteButton = ref(null);
 
 const headers = [{title: 'ISBN', key: 'isbn'}, 
                  {title: 'Title', key: 'title'},
@@ -86,6 +91,9 @@ function unfavorite(isbn) {
   favoriteBooks.value = store.getFavorite;
 }
 
+const enterFavorite = () => {
+  favoriteBook(favoriteButton.value.$el.click());
+}
 
 const favoriteBook = (theItem) => {
     store.updateFavorite(theItem.isbn, true)
