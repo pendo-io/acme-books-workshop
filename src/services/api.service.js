@@ -2,7 +2,7 @@ const serverLatency = 0;
 
 export function getBooks () {
     return new Promise((resolve) => {
-        fetch(`../../data/books.json`)
+        fetch(`@/data/books.json`)
             .then((response) => response.json())
             .then((json) => {
                 setTimeout(() => {
