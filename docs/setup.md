@@ -10,14 +10,16 @@ If you get stuck do not worry, you can try ask [ChatGPT](https://chatgpt.com/) f
 ## 1. Download and install Git
 [Git](https://git-scm.com/) is a version control system that tracks changes in your code, allowing multiple people to collaborate and manage project versions efficiently.
 
+First check whether you already have git installed by running `git --version` in your terminal. It should print a version number if you already have git installed.
+
 ### Mac instructions
-Open the Mac terminal application and run the following commands (`# these are comments`). On Mac you'll need to install [Homebrew](https://brew.sh/).
+Open the Mac terminal application and run the following commands (`# these are comments`). On Mac you'll need to install [Homebrew](https://brew.sh/) if you have not got it already. To check run `brew --version`.
 
 ```bash
-# install Homebrew
+# install Homebrew if you do not already have it
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# install git
+# then install git
 brew install git
 
 # verify that git install correctly
@@ -76,6 +78,12 @@ Other ways to install Node.js are documented here: https://nodejs.org/en/downloa
 There are many different text editors, the one you choose to use is down to personal preference, but the most popular text editor today is [Visual Studio Code](https://code.visualstudio.com/) so that is the one we recommend.
 
 Visit the website to download and install VSCode here: https://code.visualstudio.com/download.
+
+### Set up VSCode
+
+From the sidebar click extensions, search `Vue.volar` and install the `Vue - Official` extension from Vue (Should have a blue tick).
+
+Go to settings (From the cog in the bottom left), then search `format on save`. Tick the box under `Editor: Format On Save`.
 
 <hr style="margin-top: 32px">
 <div style="display: flex; justify-content: center; margin-top: 16px; font-weight: bold; font-size: 16px">
