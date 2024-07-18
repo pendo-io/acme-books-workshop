@@ -18,14 +18,10 @@
 <!-- The script setup is where the logic goes.
  This is where you can define variables and functions that will be used in the template -->
 <script setup>
-import { getFavoriteBooks } from '@/services/api.service';
-import { ref } from 'vue';
+import { useBookStore } from '@/stores/book';
 
-const favoriteBooks = ref([]);
-
-getFavoriteBooks().then((books) => {
-  favoriteBooks.value = books;
-});
+const bookStore = useBookStore();
+const favoriteBooks = bookStore.getFavoriteBooks();
 </script>
 
 <!-- The style tag is where you can define styles that will only apply to this component -->
