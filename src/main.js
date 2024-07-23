@@ -6,7 +6,6 @@
 
 // Plugins
 import { registerPlugins } from '@/plugins';
-
 // Components
 import App from './App.vue';
 
@@ -14,17 +13,18 @@ import App from './App.vue';
 import { createApp } from 'vue';
 
 // Create store
-import { useBookStore } from '@/stores/book';
+import { useBookStore } from '@/stores/bookStore';
 import { createPinia } from 'pinia';
 
 const app = createApp(App)
 
 const pinia = createPinia()
 app.use(pinia)
-const bookStore = useBookStore();
-bookStore.loadBooks();
 
 
 registerPlugins(app)
 
 app.mount('#app')
+
+const bookStore = useBookStore();
+bookStore.loadBooks();

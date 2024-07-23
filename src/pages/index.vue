@@ -18,10 +18,10 @@
 <!-- The script setup is where the logic goes.
  This is where you can define variables and functions that will be used in the template -->
 <script setup>
-import { useBookStore } from '@/stores/book';
+import { useBookStore } from '@/stores/bookStore';
 
 const bookStore = useBookStore();
-const favoriteBooks = bookStore.getFavoriteBooks();
+const favoriteBooks = bookStore.getFavoriteBooks;
 </script>
 
 <!-- The style tag is where you can define styles that will only apply to this component -->
