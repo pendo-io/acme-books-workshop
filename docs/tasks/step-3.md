@@ -13,7 +13,7 @@ Make sure to read through the documentation of the component to familiarise your
 Get the books data from the Pinia store:
 
 ```
-import { useBookStore } from '@/stores/book';
+import { useBookStore } from '@/stores/bookStore';
 
 const bookStore = useBookStore();
 const allBooks = bookStore.books;

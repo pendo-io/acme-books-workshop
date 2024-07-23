@@ -10,7 +10,7 @@ The BookCard component is currently not being used by the homepage. Open `src/pa
 
 To add the component use a tag that has the components name in kebab case. In this case we want to render the `BookCard.vue` component so we add `<book-card ... />` to the template of `index.vue`.
 
-In the script for `index.vue` we already return a list of the `favoriteBooks` for the component to use in the template. This is done using the api method `getFavoriteBooks()` which gets all of the books from `books.json` that have `favorite: true` set. We can use `v-for` to loop through each book in the favorite books list and create a book card component for each of the favorite books. The `v-for` requires a unique key for each component, we can pass the `isbn` to it as that is a unique identifier.
+In the script for `index.vue` we already return a list of the `favoriteBooks` for the component to use in the template. This is done using the store getter `getFavoriteBooks` which gets all of the books from `books.json` that have `favorite: true` set. We can use `v-for` to loop through each book in the favorite books list and create a book card component for each of the favorite books. The `v-for` requires a unique key for each component, we can pass the `isbn` to it as that is a unique identifier.
 
 Finally we can pass data to the components props, `:prop-name="value"`, for example we can pass the title to the component by doing `:title="books.title"`.
 
