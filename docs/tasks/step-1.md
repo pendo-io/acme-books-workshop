@@ -1,15 +1,15 @@
 # Step 1: Clone and run the base app
-
 ## a) Download a copy of the base app
-Open your terminal/command prompt.</br>
-You can do this on a mac by pressing command+space at the same time. When the Spotlight opens, type "Terminal" and press enter.</br>
+Open your terminal/command prompt.
+
+You can do this on a Mac by pressing command+space at the same time. When the Spotlight opens, type "Terminal" and press enter.</br>
 For a Windows machine, press Windows+R to open the "Run" box. Type "cmd" and then click OK to open a regular command prompt.
 
-Type the following into your terminal/command prompt, note that text after a hash (#) is a helpful comment from us.
+Type the following into your terminal/command prompt, note that text after a hash (#) is a helpful comment from us that explains what you're doing.
 
 ```bash
 cd ~/Documents/
-# this command will change the folder (cd means change directory) you are using to your documents so all your work will be saved there.
+# cd means change directory. This command will change the folder you are using to your documents so all your work will be saved there.
 
 # now we need to clone the github repository so that you get the starter code on your machine in your documents folder.
 git clone git@github.com:pendo-io/acme-books-workshop.git
@@ -56,20 +56,27 @@ To start the app run the following in your terminal/command prompt.
 npm run dev
 ```
 
-This will start a local development server on your laptop. You should see the following returned in your terminal/command prompt:
+This will start a local development server on your laptop. You should see something like this returned in your terminal/command prompt:
 
-![Returned data on app start](./local-build-info.png)
+``` bash
+  VITE v5.3.1  ready in 556 ms
 
-You can visit your app in your browser by clicking the link returned.
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
 
-You should see the following webpage:
+```
+
+You can visit your app in your browser by clicking the link returned on the local line. You should see the following webpage:
 
 ![Welcome to Acme Books](./step-1.png)
 
 ## d) Make your first change
-Open `src/pages/index.vue` and update the page heading from `Welcome to ACME Books` to something of your choice.
+1. Open `src/pages/index.vue`
+2. Find the heading `Welcome to ACME Books`.
+3. Update the text to something of your choice.
 
-You'll see the page heading between `<h1 />` tags. This is HTML and the h tags are used to define headers.</br>
+You'll see the page heading between two `<h1 />` tags. This is HTML and the `<h1 />` tags are used to define headers.</br>
 You can read more about HTML heading tags on [w3schools](https://www.w3schools.com/tags/tag_hn.asp).
 
 Save your changes and have a look at your webpage - it should have updated to show your new text. You may need to reload the page for the changes to take effect.

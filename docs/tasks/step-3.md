@@ -29,32 +29,34 @@ We're going to be adding `pageCount` into our component card.
 Have a look at the [anatomy of a v-card](https://vuetifyjs.com/en/components/cards/#anatomy). You'll see there are a few different parts that we can add to our card component. We'll pick `subtitle` for page count.
 
 ## b) Add the pageCount to the component
-In `src/pages/index.vue`, in our `<book-card />` component, add the line
+In `src/pages/index.vue`, in our `<book-card />` component, replace the `:text="text"` line with the following:
 ```
 :subtitle="book.pageCount"
 ```
-This will bring back the number of pages for each of the favorite books.</br>
+Here, we are saying that we want to use the `subtitle` area to display the number of pages (`pageCount`) for each of the favorite books.</br>
 Your page should look something like this:
 
 ![Books with simple page count](./step-3-b.png)
 
 This isn't super helpful to people reading this as they probably won't know what the number means.
 
-## c) Add a function to return some helpful text with the number of pages
+## c) Update the property so that it returns some helpful text as well as the number of pages
 We're going to start by defining a new variable that should return a string, for example 'This book has 100 pages'.</br>
 A variable is something that stores information that could change. 
 
 In `src/pages/index.vue`, find the line with `Step 3...` and create a new line under the comment.
 
 ### i) Create a variable called pageCount
-To create a new variable, you'll need to use the `const` keyword and then give it a name, in our case `pageCount`.
-Make the variable return a string (text) that says `"This book has n pages"` where n = any number you choose. For example:
+To create a new variable, you'll need to use the `const` keyword and then a variable name, in our case `pageCount`.</br>
+Make the variable return a string ("text") that says `"This book has n pages"` where n = any number you choose. Your text will need to be wrapped in quote marks. For example:
 ```
 const pageCount = "This book has 100 pages";
 ```
+
 ### ii) Update the :subtitle property in the `<book-card />` component to show the returned value
-We're now going to update the `:subtitle` property in our component from `books.pageCount` to our new variable `pageCount`. Your webpage should look something like:</br>
-![Books with simple page count returned text](./step-3-c-i.png)
+We're now going to update the `:subtitle` property in our component from `books.pageCount` to our new variable `pageCount`. Your webpage should look something like this:
+
+![Books with simple page count returned text](./step-3-c-ii.png)
 
 This now shows the same number of pages for each book, which isn't right. We're going to bring these two steps together so that we show the correct number of pages for each book.
 
@@ -64,16 +66,28 @@ A function is a self-contained module of code that performs a specific task.
 Your new function should use the book's pageCount property within the string that you wrote in the previous step.</br>
 To do this, we need to change our pageCount variable into a function. It should take `(book)` as an argument and return the `book.pageCount` property in the string.
 
-An argument is an object that is sent to the function when it is called. In our case, we are sending the book object to the function.
+An argument is an [object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) that is sent to the function when it is called. In our case, we are sending the book object to the function. We want it to return the pageCount property of the book. 
 
-Here's an example to help you structure your function. Your argument will be books, and your property will be pageCount. Update 'some text' to be an indication of page number, for example `This book has ${property} pages`.</br>
-```
+A [property](https://developer.mozilla.org/en-US/docs/Glossary/Property/JavaScript) is a part of an object that consists of: 
+- A name (also called a key)
+- A value, which can be any JavaScript value
+
+Here's an example to help you structure your function. Your argument will be books, and your property will be pageCount. Update 'some text' to be an indication of page number, for example `This book has ${property} pages`. Note, you will need to use backtick (``) characters here rather than quotes (""). 
+
+``` javascript
 const pageCount = (argument) => `Some text ${property};`
 ```
+We put the property value inside curly braces `${property}` so that our variable (pageCount) can be used in the string (our "This book has 100 pages" text).
 
-Our `:subtitle` property is already using `pageCount`, but we need to tell it to use the book argument.
+In the `<book-card />` component, the `:subtitle` property is already using `pageCount`, but we need to tell it to use the book argument for the function to work properly. We do this by adding `(book)` in parentheses after calling the `pageCount` function.
 
+```javascript
+  :subtitle="pageCount(book)"
 ```
+
+Your `<book-card />` component should now look like this:
+
+``` javascript
 <book-card
   v-for="book in favoriteBooks"
   :key="book.isbn"
@@ -93,9 +107,22 @@ We follow sets of best practices so that our code is more readable and easier to
 3. Copy the line `:subtitle="pageCount"` from `<v-card-copy />`.
 4. Paste it under the `:title="title"` line in `<v-card />`.
 5. Open `src/pages/index.vue`.
-6. In the `<book-card />` component, replace `:subtitle` with 
+6. In the `<book-card />` component, replace `:subtitle` with `:pageCount`
 
+Thinking back to the [anatomy of the v-card component](https://vuetifyjs.com/en/components/cards/#anatomy), we're using the `subtitle` element for our pageCount function because we want the page count text to show in the subtitle space and theme. To make our code easier to read, we're using the variable `pageCount` as our `:subtitle` property.
+
+Your `<v-card />` component in `src/components/BookCard.vue` should now look like this:
+
+``` javascript
+<v-card
+  :title="title"
+  :subtitle="pageCount""
+/>
 ```
+
+Your `<book-card />` component  in `src/pages/index.vue` should now look like this:
+
+``` javascript
 <book-card
   v-for="book in favoriteBooks"
   :key="book.isbn"
@@ -104,13 +131,10 @@ We follow sets of best practices so that our code is more readable and easier to
 />
 ```
 
-Your webpage should not have changed, and should still show the book title and page count.
+Your webpage should not have changed, and should still show the book title and page count. If you're confused or want to know more, ask us!
 
-If you want to add more details to your component, try it out in <span><a href="./step-4.md">step 3.1</a></span>. If you want to start styling your page, click next step!
+If you want to add more details to your component, try it out in <span><a href="./step-3-1.md">step 3.1</a></span>. If you want to start styling your page, click next step!
 
-### v) notes
-Thinking back to the [anatomy of the v-card component](https://vuetifyjs.com/en/components/cards/#anatomy), we're using the `subtitle` element to tell our card what to show. In this case we're using the variable `pageCount` as our `:subtitle` property.</br>
-If you're confused or want to know more, ask us!
 
 <hr style="margin-top: 32px">
 <div style="display: flex; justify-content: space-between; margin-top: 16px; font-weight: bold; font-size: 16px">
