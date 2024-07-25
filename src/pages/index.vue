@@ -7,10 +7,12 @@
         src="@/assets/logo.png"
       />
 
+      <!-- Step 1: Change the title and save the file. -->
       <h1>Welcome to Acme Books</h1>
 
       <div class="cards-container">
-        <!-- Step 2: use the book-card component here -->
+        <!-- Step 2: Add the <book-card/> component here. -->
+
       </div>
   </div>
 </template>
@@ -22,6 +24,10 @@ import { useBookStore } from '@/stores/bookStore';
 
 const bookStore = useBookStore();
 const favoriteBooks = bookStore.getFavoriteBooks;
+
+// Step 3: Define your functions here.
+
+
 </script>
 
 <!-- The style tag is where you can define styles that will only apply to this component -->
@@ -33,7 +39,9 @@ const favoriteBooks = bookStore.getFavoriteBooks;
   padding: 64px;
 }
 
+/* Step 4: Add styles for the cards-container here. */
 .cards-container {
-  /* Add styles here */
+   /* Add styles here */
 }
+
 </style>

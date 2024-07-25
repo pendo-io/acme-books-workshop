@@ -1,79 +1,120 @@
-# Step 3: List all the books in a table
+# Step 3: Update the card component to display more information
+Open `src/components/BookCard.vue` and you will see that it uses a `<v-card />` component inside the `<template/>`.</br>
+As you may recall from step 2, the template is where you structure your component.
 
-## a) Add table component
+The `<v-card />` component comes from the vuetify component library. This is a library full of many building blocks such as buttons, dialogues etc.</br>
+To read more about `<v-card />`, you can look at the [vuetify card component](https://vuetifyjs.com/en/components/cards/) doc.
 
-In this section, we will be adding a list of all books to the `all-books.vue` layout, using a [vuetify data table](https://vuetifyjs.com/en/components/data-tables/basics/). Similar to the book card, component, we will add the component using kebab-case naming standard, by adding the following to the template:
+On your webpage, you'll currently see the cards contain the title of the book and then 'text' underneath.</br>
+We are going to change this file so that the card component displays the page count of the book instead of 'text'.
 
-```
-<v-data-table ... />
-```
-
-Make sure to read through the documentation of the component to familiarise yourself with the usage, and code examples to make implementing this part easier!
-
-Get the books data from the Pinia store:
-
-```
-import { useBookStore } from '@/stores/bookStore';
-
-const bookStore = useBookStore();
-const allBooks = bookStore.books;
-```
-
-We will need to select the column headers that we want to display, give them a title, and a key to identify the correct row in our book object. For example, if we have a book data object that is structured like:
-
-```
+Open the `data/books.json` file and you'll see there's some information for each book, for example:</br>
+``` json
       {
         "isbn": "1933988673",
         "title": "Unlocking Android",
         "pageCount": 416,
-        ...
-      },
+        "categories": [
+          "Open Source",
+          "Mobile"
+        ],
+        "favorite": true
+      }
+```
+We'll be focussing on the strings (isbn, title) and numbers (pageCount), but for a deeper understanding of what other types of data there are, see the [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures).
+
+We're going to be adding `pageCount` into our component card.
+
+## a) Look at the v-card anatomy
+Have a look at the [anatomy of a v-card](https://vuetifyjs.com/en/components/cards/#anatomy). You'll see there are a few different parts that we can add to our card component. We'll pick `subtitle` for page count.
+
+## b) Add the pageCount to the component
+In `src/pages/index.vue`, in our `<book-card />` component, add the line
+```
+:subtitle="book.pageCount"
+```
+This will bring back the number of pages for each of the favorite books.</br>
+Your page should look something like this:
+
+![Books with simple page count](./step-3-b.png)
+
+This isn't super helpful to people reading this as they probably won't know what the number means.
+
+## c) Add a function to return some helpful text with the number of pages
+We're going to start by defining a new variable that should return a string, for example 'This book has 100 pages'.</br>
+A variable is something that stores information that could change. 
+
+In `src/pages/index.vue`, find the line with `Step 3...` and create a new line under the comment.
+
+### i) Create a variable called pageCount
+To create a new variable, you'll need to use the `const` keyword and then give it a name, in our case `pageCount`.
+Make the variable return a string (text) that says `"This book has n pages"` where n = any number you choose. For example:
+```
+const pageCount = "This book has 100 pages";
+```
+### ii) Update the :subtitle property in the `<book-card />` component to show the returned value
+We're now going to update the `:subtitle` property in our component from `books.pageCount` to our new variable `pageCount`. Your webpage should look something like:</br>
+![Books with simple page count returned text](./step-3-c-i.png)
+
+This now shows the same number of pages for each book, which isn't right. We're going to bring these two steps together so that we show the correct number of pages for each book.
+
+### iii) Add the pageCount property to your variable and turn it into a function
+A function is a self-contained module of code that performs a specific task.
+
+Your new function should use the book's pageCount property within the string that you wrote in the previous step.</br>
+To do this, we need to change our pageCount variable into a function. It should take `(book)` as an argument and return the `book.pageCount` property in the string.
+
+An argument is an object that is sent to the function when it is called. In our case, we are sending the book object to the function.
+
+Here's an example to help you structure your function. Your argument will be books, and your property will be pageCount. Update 'some text' to be an indication of page number, for example `This book has ${property} pages`.</br>
+```
+const pageCount = (argument) => `Some text ${property};`
 ```
 
-and we wanted to choose `pageCount` as a table column, we would add this to our headers like:
+Our `:subtitle` property is already using `pageCount`, but we need to tell it to use the book argument.
 
 ```
-const headers = [
-  {
-    title: 'Page Count' //displayed column title,
-    key: 'pageCount' // book object attribute
-  },
-  ... //rest of the chosen headers
-]
+<book-card
+  v-for="book in favoriteBooks"
+  :key="book.isbn"
+  :title="book.title"
+  :subtitle="pageCount(book)"
+/>
+```
+The webpage should now look like this:
+
+![Books with page Count function](./step-3-c-iii.png)
+
+### iv) Best practices
+We follow sets of best practices so that our code is more readable and easier to maintain. Now we need to implement some best practices into our code.
+
+1. Open `src/components/BookCard.vue`.
+2. Remove the forward slashes and space (`// `) from the line `// pageCount: String,`.
+3. Copy the line `:subtitle="pageCount"` from `<v-card-copy />`.
+4. Paste it under the `:title="title"` line in `<v-card />`.
+5. Open `src/pages/index.vue`.
+6. In the `<book-card />` component, replace `:subtitle` with 
+
+```
+<book-card
+  v-for="book in favoriteBooks"
+  :key="book.isbn"
+  :title="book.title"
+  :pageCount="pageCount(book)"
+/>
 ```
 
-Now we have defined our book data and selected headers, we can add these as props to the vuetify component:
+Your webpage should not have changed, and should still show the book title and page count.
 
-```
-<v-data-table
-  :items="allBooks"
-  :headers="headers" />
-```
+If you want to add more details to your component, try it out in <span><a href="./step-4.md">step 3.1</a></span>. If you want to start styling your page, click next step!
 
-## b) Add at least one of the following features to the table
-
-### Search
-
-Search is a common filtering method, which will only display rows that match/contain a specified search query. the vuetify data table component comes with a built `search` prop, in which you can provide some text string (usually typed into an input), and your table will be automatically filtered. See more info and an example here:
-https://vuetifyjs.com/en/components/data-tables/data-and-display/#search
-
-### Pagination
-
-Pagination is a techinique used to divide large sets of data into smaller, more manageable pages. Instead of displaying all possible rows for your data table all at once, we can break these down into discrete pages, allowing users to navigate through the rows, page by page. Vuetify data table has an`itemsPerPage` prop, to define how long each page should be, and a `v-model:page` binding to signify which number 'page' should be currently displayed. See more info, and an example with dynamic changing of pages here:
-https://vuetifyjs.com/en/components/data-tables/data-and-display/#pagination-examples
-
-### Column sorting
-
-Users may want to sort rows by a specific column value, to organise the data in either an ascending or descending order. For example, if you were to sort a table in descending order by the 'Created At' column, it would show the most recently created rows at the top, and the oldest created rows at the bottom. This functionality makes the user experience more interactive, user-freindly and efficient. See examples of column sorting here:
-https://vuetifyjs.com/en/components/data-tables/data-and-display/#sorting-examples
-
-### Filtering by category
-
-Add buttons to filter books by category
+### v) notes
+Thinking back to the [anatomy of the v-card component](https://vuetifyjs.com/en/components/cards/#anatomy), we're using the `subtitle` element to tell our card what to show. In this case we're using the variable `pageCount` as our `:subtitle` property.</br>
+If you're confused or want to know more, ask us!
 
 <hr style="margin-top: 32px">
 <div style="display: flex; justify-content: space-between; margin-top: 16px; font-weight: bold; font-size: 16px">
-  <span><a href="./docs/tasks/step-2.md">← Previous Step</a></span>
+  <span><a href="./step-2.md">← Previous Step</a></span>
   <span><a href="README.md">🏠 Home</a></span>
-  <span><a href="./docs/tasks/step-4.md">Next Step →</a></span>
+  <span><a href="./step-4.md">Next Step →</a></span>
 </div>

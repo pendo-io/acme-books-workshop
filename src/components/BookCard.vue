@@ -1,19 +1,26 @@
 <!-- The template is where you can define the structure of the component using html-->
 <template>
     <!-- The v-card component is a Vuetify component that displays a card -->
-     <v-card
+    <v-card
         :title="title"
-        text="text"/>
+        :text="text"
+    />
 </template>
 
+<!-- <v-card-copy
+    :subtitle="pageCount"
+    :text="shortDescription"
+/> -->
+
 <!-- The script setup is where the logic goes.
- This is where you can define variables and functions that will be used in the template -->
+This is where we define variables, properties and functions that will be used in the template. -->
 <script setup>
     import { defineProps } from "vue";
 
-    // Define the props that this component will accept
     defineProps({
         title: String,
+        // pageCount: String,
+        // shortDescription: String
     });
 </script>
 
