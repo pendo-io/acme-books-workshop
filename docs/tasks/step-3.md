@@ -29,14 +29,14 @@ We're going to be adding `pageCount` into our component card.
 Have a look at the [anatomy of a v-card](https://vuetifyjs.com/en/components/cards/#anatomy). You'll see there are a few different parts that we can add to our card component. We'll pick `subtitle` for page count.
 
 ## b) Add the pageCount to the component
-In `src/pages/index.vue`, in our `<book-card />` component, replace the `:text="text"` line with the following:
+In `src/pages/index.vue`, in our `<book-card />` component, replace the `text="text"` line with the following:
 ```
 :subtitle="book.pageCount"
 ```
 Here, we are saying that we want to use the `subtitle` area to display the number of pages (`pageCount`) for each of the favorite books.</br>
 Your page should look something like this:
 
-![Books with simple page count](./step-3-b.png)
+![Books with simple page count](./../images/step-3-b.png)
 
 This isn't super helpful to people reading this as they probably won't know what the number means.
 
@@ -54,16 +54,17 @@ const pageCount = "This book has 100 pages";
 ```
 
 ### ii) Update the :subtitle property in the `<book-card />` component to show the returned value
+
 We're now going to update the `:subtitle` property in our component from `books.pageCount` to our new variable `pageCount`. Your webpage should look something like this:
 
-![Books with simple page count returned text](./step-3-c-ii.png)
+![Books with simple page count returned text](./../images/step-3-c-ii.png)
 
 This now shows the same number of pages for each book, which isn't right. We're going to bring these two steps together so that we show the correct number of pages for each book.
 
 ### iii) Add the pageCount property to your variable and turn it into a function
 A function is a self-contained module of code that performs a specific task.
 
-Your new function should use the book's pageCount property within the string that you wrote in the previous step.</br>
+Your new function should use the book's pageCount property (the number of pages) within the string that you wrote in the previous step.</br>
 To do this, we need to change our pageCount variable into a function. It should take `(book)` as an argument and return the `book.pageCount` property in the string.
 
 An argument is an [object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) that is sent to the function when it is called. In our case, we are sending the book object to the function. We want it to return the pageCount property of the book. 
@@ -97,7 +98,7 @@ Your `<book-card />` component should now look like this:
 ```
 The webpage should now look like this:
 
-![Books with page Count function](./step-3-c-iii.png)
+![Books with page Count function](./../images/step-3-c-iii.png)
 
 ### iv) Best practices
 We follow sets of best practices so that our code is more readable and easier to maintain. Now we need to implement some best practices into our code.
@@ -137,7 +138,7 @@ If you want to add more details to your component, try it out in <span><a href="
 
 
 <hr style="margin-top: 32px">
-<div style="display: flex; justify-content: space-between; margin-top: 16px; font-weight: bold; font-size: 16px">
+<div style="display: flex; justify-content: space-around; margin-top: 16px; font-weight: bold; font-size: 16px">
   <span><a href="./step-2.md">← Previous Step</a></span>
   <span><a href="README.md">🏠 Home</a></span>
   <span><a href="./step-4.md">Next Step →</a></span>

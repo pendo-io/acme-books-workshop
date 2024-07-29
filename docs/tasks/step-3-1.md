@@ -22,10 +22,10 @@ Note: the webpage will not yet show your description property because we need to
 
 The webpage should now look like this:
 
-![Books with description function](./step-3-1.png)
+![Books with description function](./../images/step-3-1.png)
 
 <hr style="margin-top: 32px">
-<div style="display: flex; justify-content: space-between; margin-top: 16px; font-weight: bold; font-size: 16px">
+<div style="display: flex; justify-content: space-around; margin-top: 16px; font-weight: bold; font-size: 16px">
   <span><a href="./step-3.md">← Previous Step</a></span>
   <span><a href="README.md">🏠 Home</a></span>
   <span><a href="./step-4.md">Next Step →</a></span>

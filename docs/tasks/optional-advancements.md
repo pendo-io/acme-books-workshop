@@ -95,7 +95,7 @@ Add a button to the homepage that opens a drawer or modal that allows you to fav
 Add a way for a user to edit a books details (from the homepage and from the table). Use the `updateBook` action in the store. Include a way to remove a book from your library list using the `deleteBook` store action.
 
 <hr style="margin-top: 32px">
-<div style="display: flex; justify-content: space-between; margin-top: 16px; font-weight: bold; font-size: 16px">
+<div style="display: flex; justify-content: space-around; margin-top: 16px; font-weight: bold; font-size: 16px">
   <span><a href="./docs/tasks/step-3.md">← Previous Step</a></span>
   <span><a href="README.md">🏠 Home</a></span>
   <span></span>

@@ -17,7 +17,7 @@ For example, imagine a webpage where we have a header (`<h1 />`), a subheading (
 ```
 It looks something like this:
 
-![Webpage no styling](./unstyled.png)
+![Webpage no styling](./../images/unstyled.png)
 
 ## a) Using HTML tags
 Instead of individually applying styles to each element one by one, we can style all instances of the type of element (the tag) at the same time. 
@@ -56,7 +56,7 @@ p {
 ```
 This set of CSS rules will be applied to our headers and paragraphs as so:
 
-![CSS using html tags](./css-tags.png)
+![CSS using html tags](./../images/css-tags.png)
 
 ## b) Using classes and ids
 As well as using HTML tags to style specific types of element, we can uses classes or ids. 
@@ -108,7 +108,7 @@ Now we can style our webpage using those ids and classes, like this:
 ```
 This set of CSS rules will be applied to our HTML as so:
 
-![CSS using classes and ids](./css-class-id.png)
+![CSS using classes and ids](./../images/css-class-id.png)
 
 ## c) Your turn!
 Using the documentation links and examples provided have a go at styling the homepage.
@@ -127,7 +127,8 @@ Either try out the adding extra content to your card component <span><a href="./
  
 
 <hr style="margin-top: 32px">
-<div style="display: flex; justify-content: space-between; margin-top: 16px; font-weight: bold; font-size: 16px">
+<div style="display: flex; justify-content: space-around; margin-top: 16px; font-weight: bold; font-size: 16px">
   <span><a href="./step-3.md">← Previous Step</a></span>
   <span><a href="README.md">🏠 Home</a></span>
+  <span><a href="./optional-advancements.md">Optional advancement →</a></span>
 </div>

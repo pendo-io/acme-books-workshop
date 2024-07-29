@@ -14,8 +14,17 @@ cd ~/Documents/
 # now we need to clone the github repository so that you get the starter code on your machine in your documents folder.
 git clone git@github.com:pendo-io/acme-books-workshop.git
 ```
+If you get an error this way, try copying the following URL and then paste it into VSCode.
+1. Copy `https://github.com/pendo-io/acme-books-workshop.git`
+2. In VSCode, on the welcome screen, click `Clone Git Repository...`
+3. This will open a very small input at the top of the app where you can paste the URL from step 1.
+4. This opens a pop up asking where to save the file. Choose Documents folder (or any folder of your choice) and then click `Select as Repository Destination`.
+
+This should open the code automatically, but if it doesn't:
+
 Open your code editor and then click File > Open and choose the `ACME-BOOKS-WORKSHOP` folder in your documents folder.
 
+### File structure
 Here is a rough file structure and explanation of some of the key folders and files.
 
 ```bash
@@ -56,7 +65,7 @@ To start the app run the following in your terminal/command prompt.
 npm run dev
 ```
 
-This will start a local development server on your laptop. You should see something like this returned in your terminal/command prompt:
+This will start a local development server on your laptop. You should see something like this returned in your terminal/command prompt (but the numbers might be different):
 
 ``` bash
   VITE v5.3.1  ready in 556 ms
@@ -69,7 +78,7 @@ This will start a local development server on your laptop. You should see someth
 
 You can visit your app in your browser by clicking the link returned on the local line. You should see the following webpage:
 
-![Welcome to Acme Books](./step-1.png)
+![Welcome to Acme Books](./../images/step-1.png)
 
 ## d) Make your first change
 1. Open `src/pages/index.vue`
@@ -77,7 +86,7 @@ You can visit your app in your browser by clicking the link returned on the loca
 3. Update the text to something of your choice.
 
 You'll see the page heading between two `<h1 />` tags. This is HTML and the `<h1 />` tags are used to define headers.</br>
-You can read more about HTML heading tags on [w3schools](https://www.w3schools.com/tags/tag_hn.asp).
+We'll be learning a bit more about HTML later.
 
 Save your changes and have a look at your webpage - it should have updated to show your new text. You may need to reload the page for the changes to take effect.
 
