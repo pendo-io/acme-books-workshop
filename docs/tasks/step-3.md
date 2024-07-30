@@ -5,10 +5,14 @@ As you may recall from step 2, the template is where you structure your componen
 The `<v-card />` component comes from the vuetify component library. This is a library full of many building blocks such as buttons, dialogues etc.</br>
 To read more about `<v-card />`, you can look at the [vuetify card component](https://vuetifyjs.com/en/components/cards/) doc.
 
-On your webpage, you'll currently see the cards contain the title of the book and then 'text' underneath.</br>
-We are going to change this file so that the card component displays the page count of the book instead of 'text'.
+On your webpage, you'll currently see the cards contain the title of the book and then the word 'text' underneath. This is because we have provided the `text` property with a value of 'text'.</br>
+We are going to change this so that the card component displays the page count of the book instead of 'text'.
 
-Open the `data/books.json` file and you'll see there's some information for each book, for example:</br>
+We are storing all our book information in a [JSON data file](https://www.w3schools.com/js/js_json_intro.asp), `data/books.json`.</br>
+Open the file and you'll see there's some information (data in name:value pairs) for each book (ojbect). Each object is wrapped in curly braces `{object}`.
+
+For example:
+
 ``` json
       {
         "isbn": "1933988673",
@@ -21,64 +25,69 @@ Open the `data/books.json` file and you'll see there's some information for each
         "favorite": true
       }
 ```
-We'll be focussing on the strings (isbn, title) and numbers (pageCount), but for a deeper understanding of what other types of data there are, see the [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures).
 
 We're going to be adding `pageCount` into our component card.
 
 ## a) Look at the v-card anatomy
 Have a look at the [anatomy of a v-card](https://vuetifyjs.com/en/components/cards/#anatomy). You'll see there are a few different parts that we can add to our card component. We'll pick `subtitle` for page count.
 
-## b) Add the pageCount to the component
-In `src/pages/index.vue`, in our `<book-card />` component, replace the `text="text"` line with the following:
+## b) Remove the line that shows 'text'
+1. Open `src/components/BookCard.vue`
+2. In the `<v-card />` component, remove the `text="text"` line and save your changes.
+Your webpage should now only show the titles of the books.
+
+## c) Add the pageCount to the component
+1. Open `src/pages/index.vue`
+2. In the `<book-card />` component, underneath the `:title` line, add the following:
 ```
 :subtitle="book.pageCount"
 ```
 Here, we are saying that we want to use the `subtitle` area to display the number of pages (`pageCount`) for each of the favorite books.</br>
 Your page should look something like this:
 
-![Books with simple page count](./../images/step-3-b.png)
+![Books with simple page count](./../images/step-3-c.png)
 
 This isn't super helpful to people reading this as they probably won't know what the number means.
 
-## c) Update the property so that it returns some helpful text as well as the number of pages
+## d) Update the property so that it returns some helpful text as well as the number of pages
 We're going to start by defining a new variable that should return a string, for example 'This book has 100 pages'.</br>
 A variable is something that stores information that could change. 
 
-In `src/pages/index.vue`, find the line with `Step 3...` and create a new line under the comment.
-
 ### i) Create a variable called pageCount
-To create a new variable, you'll need to use the `const` keyword and then a variable name, in our case `pageCount`.</br>
+To create a new variable, you'll need to use the `const` keyword and then a variable name, in our case `pageCount`.
+
+In `src/pages/index.vue`, find the line starting with `Step 3...` and create a new line under the comment.
 Make the variable return a string ("text") that says `"This book has n pages"` where n = any number you choose. Your text will need to be wrapped in quote marks. For example:
 ```
 const pageCount = "This book has 100 pages";
 ```
 
 ### ii) Update the :subtitle property in the `<book-card />` component to show the returned value
+Still in `src/pages/index.vue`, update the `:subtitle` property in the `<book-card />` component from `books.pageCount` to our new variable `pageCount`. Your webpage should look something like this:
 
-We're now going to update the `:subtitle` property in our component from `books.pageCount` to our new variable `pageCount`. Your webpage should look something like this:
-
-![Books with simple page count returned text](./../images/step-3-c-ii.png)
+![Books with simple page count returned text](./../images/step-3-d-ii.png)
 
 This now shows the same number of pages for each book, which isn't right. We're going to bring these two steps together so that we show the correct number of pages for each book.
 
 ### iii) Add the pageCount property to your variable and turn it into a function
-A function is a self-contained module of code that performs a specific task.
-
-Your new function should use the book's pageCount property (the number of pages) within the string that you wrote in the previous step.</br>
-To do this, we need to change our pageCount variable into a function. It should take `(book)` as an argument and return the `book.pageCount` property in the string.
-
-An argument is an [object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) that is sent to the function when it is called. In our case, we are sending the book object to the function. We want it to return the pageCount property of the book. 
-
+A function is a self-contained module of code that performs a specific task.</br>
+An argument is an [object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) that is sent to the function when it is called. In our case, we are sending the book object to the function. We want it to return the pageCount property of the book.</br>
 A [property](https://developer.mozilla.org/en-US/docs/Glossary/Property/JavaScript) is a part of an object that consists of: 
 - A name (also called a key)
-- A value, which can be any JavaScript value
+- A value
 
-Here's an example to help you structure your function. Your argument will be books, and your property will be pageCount. Update 'some text' to be an indication of page number, for example `This book has ${property} pages`. Note, you will need to use backtick (``) characters here rather than quotes (""). 
+Your new function should use the book's pageCount property (the number of pages) within the string that you wrote in the previous step.</br>
+Follow these steps to change our pageCount variable into a function. It should take `(book)` as an argument and return the `book.pageCount` property in the string.
 
+1. Open the `src/pages/index.vue` file.
+2. Find the variable `pageCount` that you created previously.
+3. Update the line using this as a guide:
 ``` javascript
 const pageCount = (argument) => `Some text ${property};`
 ```
-We put the property value inside curly braces `${property}` so that our variable (pageCount) can be used in the string (our "This book has 100 pages" text).
+4. Update 'some text' to be an indication of page number, for example `This book has ${property} pages`. Note, you will need to use backtick (``) characters here rather than quotes ("").
+
+We put the property value inside curly braces `${property}` so that our variable (pageCount) can be used in the string (our "This book has n pages" text).
 
 In the `<book-card />` component, the `:subtitle` property is already using `pageCount`, but we need to tell it to use the book argument for the function to work properly. We do this by adding `(book)` in parentheses after calling the `pageCount` function.
 
@@ -98,15 +107,15 @@ Your `<book-card />` component should now look like this:
 ```
 The webpage should now look like this:
 
-![Books with page Count function](./../images/step-3-c-iii.png)
+![Books with page Count function](./../images/step-3-d-iii.png)
 
 ### iv) Best practices
 We follow sets of best practices so that our code is more readable and easier to maintain. Now we need to implement some best practices into our code.
 
 1. Open `src/components/BookCard.vue`.
-2. Remove the forward slashes and space (`// `) from the line `// pageCount: String,`.
-3. Copy the line `:subtitle="pageCount"` from `<v-card-copy />`.
-4. Paste it under the `:title="title"` line in `<v-card />`.
+2. In the `<script/>` section, find the line `// pageCount: String,` and remove the forward slashes and space (`// `).
+3. Between the `<template/>` and `<script/>` sections find the line `:subtitle="pageCount"` from `<v-card-copy />` and copy it.
+4. In the `<template/>` section, in the `<v-card />` component, paste the line under the `:title="title"` line.
 5. Open `src/pages/index.vue`.
 6. In the `<book-card />` component, replace `:subtitle` with `:pageCount`
 
