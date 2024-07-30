@@ -95,6 +95,7 @@ From the sidebar click extensions, search `Vue.volar` and install the `Vue - Off
 Go to settings (From the cog in the bottom left), then search `format on save`. Tick the box under `Editor: Format On Save`.
 
 <hr style="margin-top: 32px">
-<div style="display: flex; justify-content: center; margin-top: 16px; font-weight: bold; font-size: 16px">
+<div style="display: flex; justify-content: space-around; margin-top: 16px; font-weight: bold; font-size: 16px">
   <span><a href="README.md">🏠 Home</a></span>
+  <span><a href="./tasks/step-1.md">Get started →</a></span>
 </div>

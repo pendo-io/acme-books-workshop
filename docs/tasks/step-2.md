@@ -7,6 +7,8 @@ We can make components in Vue ourselves, or use built-in components from a libra
 ## a) Take a look at the data file
 Open up the `books.json` file. You'll find it in the `/data` folder.
 
+Note: By default, VSCode opens files in preview mode. This is indicated by their name being italic in the menu bar at the top. You can double click on the file to fully open it. It was also remain open fully if you make any changes or double click its tab header in the menu bar at the top.
+
 Each book stored in `/data/books.json` has a favorite field that, if true, marks that book as a favorite book. In this step you will display those favorite books on the homepage.
 
 Note that most coding keywords are in American English, e.g. favorite, color, etc.
@@ -22,7 +24,7 @@ Finally there is a style section where you can define the styles for your compon
 
 All three technologies work together to create dynamic web pages and apps.
 
-![Development cake visual](./devel-cake.png)
+![Development cake visual](./../images/devel-cake.png)
 
 ## c) Add the BookCard component to home page
 The BookCard component is currently not being used by the homepage. Follow the steps below to add it:
@@ -40,7 +42,7 @@ The BookCard component is currently not being used by the homepage. Follow the s
 In the `<script />` section we have pre-filled a few lines of code to help show this component on your screens. Save your changes and have a look at your webpage.
 
 You should see the following:<br/>
-![Home page with book-card component](./step-2-a.png)
+![Home page with book-card component](./../images/step-2-a.png)
 
 ## d) Adding properties to the component
 In `index.vue` we already return a list of the `favoriteBooks` for the component to use in the template in this line:
@@ -66,13 +68,13 @@ Add the `v-for` line, and the `isbn` and `title` properties to your `<book-card 
 />
 ```
 You should see the following webpage:<br/>
-![Home page with favorite books](./step-2.png)
+![Home page with favorite books](./../images/step-2.png)
 
 ### i) v-for loop further information
 Technical explanation: The `v-for` line uses the store getter `getFavoriteBooks`, which gets all of the books from `books.json` that have `favorite: true` set. We can use `v-for` to loop through each book in the favorite books list and create a book card component for each of the favorite books. The `v-for` requires a unique key for each component, in our case the isbn.
 
 <hr style="margin-top: 32px">
-<div style="display: flex; justify-content: space-between; margin-top: 16px; font-weight: bold; font-size: 16px">
+<div style="display: flex; justify-content: space-around; margin-top: 16px; font-weight: bold; font-size: 16px">
   <span><a href="./step-1.md">← Previous Step</a></span>
   <span><a href="README.md">🏠 Home</a></span>
   <span><a href="./step-3.md">Next Step →</a></span>

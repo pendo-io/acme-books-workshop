@@ -3,7 +3,7 @@
     <!-- The v-card component is a Vuetify component that displays a card -->
     <v-card
         :title="title"
-        :text="text"
+        text="text"
     />
 </template>
 
