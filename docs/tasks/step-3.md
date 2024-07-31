@@ -63,7 +63,7 @@ const pageCount = "This book has 100 pages";
 ```
 
 ### ii) Update the :subtitle property in the `<book-card />` component to show the returned value
-Still in `src/pages/index.vue`, update the `:subtitle` property in the `<book-card />` component from `books.pageCount` to our new variable `pageCount`. Your webpage should look something like this:
+Still in `src/pages/index.vue`, update the `:subtitle` property in the `<book-card />` component from `book.pageCount` to our new variable `pageCount`. Your webpage should look something like this:
 
 ![Books with simple page count returned text](./../images/step-3-d-ii.png)
 
