@@ -56,7 +56,7 @@ We do this using the `v-for` loop (a built-in vue loop function) and to do this 
 We also want to display the title of the book. 
 
 We need to use the following pattern when adding any data to our component: `:prop-name="value"`.</br>
-For example, we can pass the title to the component by doing `:title="books.title"`. We have to tell the component that the title comes from the books object.
+For example, we can pass the title to the component by doing `:title="book.title"`. We have to tell the component that the title comes from the books object.
 
 Add the `v-for` line, and the `isbn` and `title` properties to your `<book-card />` component as follows:
 

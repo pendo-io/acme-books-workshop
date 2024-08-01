@@ -8,7 +8,7 @@ In `src/pages/index.vue`, create a new line under your `pageCount` function.
 
 ### i) Create a variable called shortDescription
 Don't forget to use the `const` keyword and give it a name, in our case `shortDescription`.</br>
-You can follow the `pageCount` pattern to help. Make the variable return the value of `books.shortDescription`. 
+You can follow the `pageCount` pattern to help. Make the variable return the value of `book.shortDescription`. 
 
 ### ii) Update the props in the `<book-card />` component
 Following the pattern of the `:pageCount` prop, add a prop for `:shortDescription` that equals your `shortDescription` function.</br>
