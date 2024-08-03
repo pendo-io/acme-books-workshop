@@ -60,6 +60,7 @@ const shortDescription = (book) => {
   flex-direction: column;
   justify-content: center;
   align-content: center;
+  padding: 16px;
 }
 
 .card {
@@ -67,6 +68,8 @@ const shortDescription = (book) => {
   color: #0C345A;
   border-color: #EFF6EE;
   border-width: 2px;
+  padding: 6px;
+  margin: 3px;
 }
 
 </style>
