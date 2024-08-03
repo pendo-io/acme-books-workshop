@@ -3,7 +3,8 @@
     <!-- The v-card component is a Vuetify component that displays a card -->
     <v-card
         :title="title"
-        text="text"
+        :subtitle="pageCount"
+        :text="shortDescription"
     />
 </template>
 
@@ -19,8 +20,8 @@ This is where we define variables, properties and functions that will be used in
 
     defineProps({
         title: String,
-        // pageCount: String,
-        // shortDescription: String
+        pageCount: String,
+        shortDescription: String
     });
 </script>
 
